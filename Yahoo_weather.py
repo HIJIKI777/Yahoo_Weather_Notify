@@ -8,7 +8,7 @@ import time
 #Yahoo天気の情報をまとめたテキストと，それに対応する画像をLINE_Notifyに送信する(雪などは含めない)
 def LINE_Notify(message,image):
     LINE_url = 'https://notify-api.line.me/api/notify'
-    access_token = #'ここに自身のアクセストークンを入力'
+    access_token = #'ここに自身のLINE Notifyのアクセストークンを入力'
     headers = {'Authorization':'Bearer ' + access_token}
     payload = {'message': message}
     files = {"imageFile":open(image,'rb')}
@@ -17,7 +17,7 @@ def LINE_Notify(message,image):
 #Yahoo天気の情報をまとめたテキストのみをLINE_Notifyに送信する(雪などの晴，曇，雨以外の天気の場合)
 def LINE_Message(message):
     LINE_url = 'https://notify-api.line.me/api/notify'
-    access_token = #'ここに自身のアクセストークンを入力'
+    access_token = #'ここに自身のLINE Notifyのアクセストークンを入力'
     headers = {'Authorization':'Bearer ' + access_token}
     payload = {'message': message}
     line_req = requests.post(LINE_url, headers=headers, params=payload)

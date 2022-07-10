@@ -1,1 +1,1 @@
-@py.exe (Yahoo_weather.pyの絶対パスを入力する) %*
+@py.exe (Yahoo_Weather.pyの絶対パスを入力する) %*
