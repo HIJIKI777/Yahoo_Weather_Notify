@@ -5,10 +5,10 @@ import schedule
 import datetime
 import time
 
-#Yahoo天気の情報をまとめたテキスト，画像をLINE_Notifyに送信する(雪などは含めない)
+#Yahoo天気の情報をまとめたテキストと，それに対応する画像をLINE_Notifyに送信する(雪などは含めない)
 def LINE_Notify(message,image):
     LINE_url = 'https://notify-api.line.me/api/notify'
-    access_token = #'アクセストークンを入力'
+    access_token = #'ここに自身のアクセストークンを入力'
     headers = {'Authorization':'Bearer ' + access_token}
     payload = {'message': message}
     files = {"imageFile":open(image,'rb')}
@@ -17,7 +17,7 @@ def LINE_Notify(message,image):
 #Yahoo天気の情報をまとめたテキストのみをLINE_Notifyに送信する(雪などの晴，曇，雨以外の天気の場合)
 def LINE_Message(message):
     LINE_url = 'https://notify-api.line.me/api/notify'
-    access_token = #'アクセストークンを入力'
+    access_token = #'ここに自身のアクセストークンを入力'
     headers = {'Authorization':'Bearer ' + access_token}
     payload = {'message': message}
     line_req = requests.post(LINE_url, headers=headers, params=payload)
@@ -53,7 +53,7 @@ GetWeather(PrefectureCode,Areacode)
 if __name__ == '__main__':
     message = "明日の岡山の天気は" + NextWeather + "だよ．" + "最高気温は" + NextTempH + "，最低気温は" + NextTempL
     if NextWeather == "晴れ":
-        image = r"sun.pngの絶対パスを入力する"
+        image = r"sun.pngの絶対パスを入力する"              #これらの画像はImageフォルダに入っています
         LINE_Notify(message,image)
     elif NextWeather == "雨":
         image = r"rain.pngの絶対パスを入力する"
